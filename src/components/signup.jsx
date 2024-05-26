@@ -2,6 +2,7 @@ import { useState ,useEffect,useRef} from 'react'
 import React from 'react'
 import './signup.css'
 import generateOTP from '../Services/GenerateOTP';
+import { Link,useNavigate } from 'react-router-dom';
 
 export default function Signup() {
   const [showPasswordLogin, setShowPasswordLog] = useState(false);
@@ -28,6 +29,8 @@ const pinRef = useRef(null);
 const confirmPasswordRef = useRef(null)
 const PasswordRefLogin = useRef(null)
 const emailRefLogin = useRef(null)
+const navigate = useNavigate();
+
 
 const [SignDataArr, setSignDataArr] = useState(
   {
@@ -181,6 +184,7 @@ const parseArrayToSingleInt = (array) => {
       
       if (emailRefLogin.current.value==='test@gmail.com' && PasswordRefLogin.current.value==='test@123') {
         alert(`login Successfull UserId : ${emailRefLogin.current.value} and password : ${PasswordRefLogin.current.value}`);
+        navigate('/Home');
       }else{
         alert('check email id or password');
       }
@@ -261,8 +265,7 @@ const exitOTP=()=>{
 
   return (
     <div id="Login">
-    <div id="back"></div>
-    <h2 style={{ margin: '10px', zIndex: 2 }}>Welcome to Play.Ultimate!</h2>
+    <Link to="/"><h3 id='crossOTPform'><i className="fa-solid fa-xmark" ></i></h3></Link>
 
     {
      !formSubmitted ?
@@ -272,36 +275,36 @@ const exitOTP=()=>{
       <form id="signup-form" ref={signUpformRef} className={isLogin ? 'hide' : ''} onSubmit={(e)=>handleSignupAndLoginFormSubmit(e,"signup")}>
         <h1>Sign Up</h1>
         <div className="form-group">
-          <label htmlFor="email">Email:</label>
-          <input type="email" id="email" name="email" ref={emailRef} required />
+          <label htmlFor="email" className='labels'>Email</label>
+          <input type="email" id="email" name="email" ref={emailRef} required  />
         </div>
         <div className="form-group">
-          <label htmlFor="name">First Name:</label>
+          <label htmlFor="firstname" className='labels'>First Name</label>
           <input type="text" id="firstname" name="firstname" ref={firstNameRef} required />
         </div>
         <div className="form-group">
-          <label htmlFor="name">Last Name:</label>
+          <label htmlFor="lastname" className='labels'>Last Name</label>
           <input type="text" id="lastname" name="lastname" ref={lastNameRef} required />
         </div>
         <div className="form-group">
-          <label htmlFor="phone">Phone Number:</label>
+          <label htmlFor="phone" className='labels'>Phone Number</label>
           <input type="tel" id="phone" name="phone" ref={phoneRef} required />
         </div>
         <div className="form-group">
-          <label htmlFor="hobby">Adress:</label>
+          <label htmlFor="Adress" className='labels'>Adress</label>
           <input type="text" id="Adress" name="Adress" ref={addressRef} required />
         </div>
         <div className="form-group">
-          <label htmlFor="hobby">Pin Code:</label>
+          <label htmlFor="Pin" className='labels'>Pin Code</label>
           <input type="text" id="Pin" name="Pin" ref={pinRef} required />
         </div>
         <div className="form-group" style={{ position: 'relative' }}>
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password" className='labels'>Password</label>
           <input type={showPasswordSign ? 'text' : 'password'} id="password" name="password" onChange={handlePasswordChange} required />
           <i id="signupeye" className={showPasswordSign ? 'fa-solid fa-eye-slash' : 'eye-icon fas fa-eye'} onClick={togglePasswordVisibilitySign}></i>
         </div>
         <div className="form-group" style={{ position: 'relative' }}>
-          <label htmlFor="confirm-password">Confirm Password:</label>
+          <label htmlFor="confirm-password" className='labels'>Confirm Password</label>
           <input type={showPasswordSignconfirm ? 'text' : 'password'} id="confirm-password" name="confirm-password"
           onChange={handleConfirmPasswordChange} style={{ outline: getConfirmPasswordOutline() }} ref={confirmPasswordRef} required />
 
@@ -318,14 +321,14 @@ const exitOTP=()=>{
       <form ref={loginFormRef} id="login-form" className={isLogin ? '' : 'hide'} onSubmit={(e)=>handleSignupAndLoginFormSubmit(e,ischecked?'LoginOTP':'Login')}>
         <h1>Login</h1>
         <div className="form-group">
-          <label htmlFor="lemail">Email:</label>
+          <label htmlFor="lemail" className='labels'>Email</label>
           <input type="email" id="lemail" name="email" ref={emailRefLogin} required />
         </div>
 
         {
           !ischecked ? (
         <div className="form-group" style={{ position: 'relative' }}>
-          <label htmlFor="lpassword">Password:</label>
+          <label htmlFor="lpassword" className='labels'>Password</label>
           <input type={showPasswordLogin ? 'text' : 'password'} id="lpassword" name="password" ref={PasswordRefLogin} required />
           <i id="logineye" className={showPasswordLogin ? 'fa-solid fa-eye-slash' : 'eye-icon fas fa-eye'} onClick={togglePasswordVisibilityLog}></i>
         </div>

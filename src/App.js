@@ -1,11 +1,38 @@
-import LandingHeader from './components/LandingHeader';
+import LandingPageHome from './components/LandingPageHome';
+import LandingPage from './components/LandingPage';
 import Signup from './components/signup';
+import LandingHeaderHome from './components/LandingHeaderHome';
+import LandingHeader from './components/LandingHeader';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
 import './App.css';
+
 function App() {
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <><LandingHeader /><LandingPage /></>,
+    },
+    {
+      path: "/Login",
+      element: <><Signup/></>,
+    },
+    {
+      path: "/Home",
+      element: <><LandingHeaderHome/><LandingPageHome/></>,
+    }
+  ]);
+
   return (
     <>
     <div className="App">
-      <Signup/>
+    
+    <RouterProvider router={router} />
+    
     </div>
     </>
   );

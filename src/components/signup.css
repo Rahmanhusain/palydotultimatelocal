@@ -1,14 +1,18 @@
 #Login{
 	min-height: 100vh;
+	height: fit-content;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background: rgb(39,34,195);
-	background: linear-gradient(90deg, rgba(39,34,195,1) 6%, rgba(40,56,198,1) 40%, rgba(45,253,230,1) 100%);
+	backdrop-filter: blur(10px); /* Apply blur effect */
+    -webkit-backdrop-filter: blur(10px);
+	background: #7386ac42;
+	box-sizing: border-box;
+	top: 0;
+	z-index: 5;
 	}
-
 	#back{
 		position: absolute;
 		background: blue;
@@ -23,24 +27,34 @@
 		max-width: 400px; /* Maximum width of the container */
 		width: calc(100% - 40px);
 		padding: 20px;
-		margin-bottom: 20px;
+		margin-bottom: 50px;
+		margin-top: 50px;
 		background-color: #fff;
 		border-radius: 10px;
 		z-index: 2;
-		-webkit-box-shadow: 7px 10px 39px 14px rgba(56,52,56,0.55);
-	-moz-box-shadow: 7px 10px 39px 14px rgba(56,52,56,0.55);
-	box-shadow: 7px 10px 39px 14px rgba(56,52,56,0.55);
+		-webkit-box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;;
+	    -moz-box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;;
+	    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;;
 	}
 	.container h1{
 		margin-bottom: 15px;
 	}
 	.form-group {
 		margin-bottom: 15px;
+		position: relative;
 	}
-	
-	label {
+	#login-form h1, #signup-form h1{
+		margin-bottom: 30px;
+	}
+	.labels {
 		display: block;
 		margin-bottom: 5px;
+		position: absolute;
+		background-color: white;
+		top: -12px;
+		left: 10px;
+		padding: 0 5px 0 5px;
+		font-weight: 300;
 	}
 	
 	input[type="email"],
@@ -48,37 +62,37 @@
 	input[type="tel"],
 	input[type="password"] {
 		width: 100%;
-		padding: 5px 10px 5px 10px;
+		padding: 15px 15px 15px 15px;
 		font-size: 16px;
-		border-radius: 20px;
+		border-radius: 5px;
 		border: 1px solid #ccc;
 	}
 	#logineye{
 		position: absolute;
 		right: 8px;
-		bottom: 7px;
+		bottom: 16px;
 		cursor: pointer;
 	}
 	#signupeye{
 		position: absolute;
 		right: 8px;
-		bottom: 7px;
+		bottom: 16px;
 		cursor: pointer;
 	}
 	#signupeyeconfirm{
 		position: absolute;
 		right: 8px;
-		bottom: 7px;
+		bottom: 16px;
 		cursor: pointer;
 	}
 	.submit {
 		width: 100%;
-		padding: 7px 10px 7px 10px;
+		padding: 15px 10px 15px 10px;
 		font-size: 16px;
-		background-color: #007bff;
+		background-color: #111827;
 		color: #fff;
 		border: none;
-		border-radius: 20px;
+		border-radius: 5px;
 		cursor: pointer;
 	}
 	#logsignlink{
@@ -100,9 +114,9 @@
         border-radius: 12px;
         row-gap: 20px;
 		z-index: 2;
-		-webkit-box-shadow: 7px 10px 39px 14px rgba(56,52,56,0.55);
-	    -moz-box-shadow: 7px 10px 39px 14px rgba(56,52,56,0.55);
-	    box-shadow: 7px 10px 39px 14px rgba(56,52,56,0.55);
+		-webkit-box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+	    -moz-box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+	    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 		position: relative;
 		text-align: center;
 	}
@@ -114,6 +128,14 @@
 	top: 15px;
 	right: 15px;
 	font-size: 25px;
+	cursor: pointer;
+}
+#crossOTPform{
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	font-size: 35px;
+    color: #111827;
 	cursor: pointer;
 }
 :where(.containerotp, #otpform, .input-field, #otpnheader) {
@@ -214,6 +236,7 @@
 			background: #f0fcff;
 		}
 		.container{
+			margin-top: 80px;
 			-webkit-box-shadow: 2px 13px 39px -15px rgba(56,52,56,1);
 		-moz-box-shadow: 2px 13px 39px -15px rgba(56,52,56,1);
 		box-shadow: 2px 13px 39px -15px rgba(56,52,56,1);
