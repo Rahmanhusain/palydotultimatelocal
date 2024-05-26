@@ -386,7 +386,7 @@ const exitOTP=()=>{
             />
           ))}
         </div>
-        <button ref={buttonRef} disabled={!isEnabled} onClick={OTPsubmithandleClick}>
+        <button className="submitotpbtn" ref={buttonRef} disabled={!isEnabled} onClick={OTPsubmithandleClick}>
           Verify OTP
         </button>
       </form>

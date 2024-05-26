@@ -95,6 +95,7 @@
 		border-radius: 5px;
 		cursor: pointer;
 	}
+	
 	#logsignlink{
 		text-align: center;
 		margin-top: 15px;
@@ -148,7 +149,7 @@
   #otpnheader{
 	height: 65px;
 	width: 65px;
-	background: #4070f4;
+	background: #111827;
 	text-align: center;
 	border-radius: 50%;
   }
@@ -196,7 +197,7 @@
 	padding: 9px 0;
 	cursor: pointer;
 	border-radius: 6px;
-	background: #5927cc;
+	background: #111827;
 	transition: all 0.2s ease;
   }
   
@@ -240,6 +241,9 @@
 			-webkit-box-shadow: 2px 13px 39px -15px rgba(56,52,56,1);
 		-moz-box-shadow: 2px 13px 39px -15px rgba(56,52,56,1);
 		box-shadow: 2px 13px 39px -15px rgba(56,52,56,1);
+		}
+		.containerotp{
+			margin-top: 80px;;
 		}
 		#back{
 			display: block;
